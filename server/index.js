@@ -7,7 +7,6 @@ const session = require('express-session');
 //Imported controller files
 const user = require('./controllers/userController');
 const auth = require('./controllers/authController');
-const authController = require('./controllers/authController');
 
 //imported variables
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
@@ -32,9 +31,9 @@ app.use(express.static(`${__dirname}/../build`)) //serve up our build folder
 
 //Auth Controllers
 
-app.post('/auth/register', authController.register);
-app.post('/auth/login', authController.login);
-app.get('/auth/user', authController.getUserSession);
+app.post('/auth/register', auth.register);
+app.post('/auth/login', auth.login);
+app.get('/auth/user', auth.getUserSession);
 
 //User Controllers
 
