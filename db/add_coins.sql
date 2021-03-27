@@ -1,0 +1,1 @@
+INSERT INTO "users" (coins) VALUES ($1)

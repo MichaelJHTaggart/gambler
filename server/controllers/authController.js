@@ -37,8 +37,8 @@ module.exports = {
   }
 
   delete existingUser.password
-
   req.session.user = existingUser
+
   res.status(200).send(existingUser)
  },
  getUserSession: (req, res) => {
