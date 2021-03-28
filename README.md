@@ -10,10 +10,9 @@ This project is not complete, but some of the completed aspects:
 
 ## Schema
 <img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/schema.png" >
-<img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/pgweb.png">
 
 ## Backend Authentication
- Please see the following Post-man results
+ Please see the results of the hashed & salted passwords after testing with postman 
 <img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/pgweb.png">
 
 Unfortunately I encountered challenges when building out the slot machine function in the backend. This took about 4 of the eight hours that were spent working on this project. Due to this incompletion I have commented out the userController.
