@@ -38,19 +38,22 @@ module.exports = {
     function determineWinner(array) {
       if (array[0] === array[1]) {
         if (array[0] === array[2]) {
-          if (array[0] === cherry) {
-            await db.add_coins(winnerCherryThree)
-            res.status(200).send("Winner! 3-in-a-row!")
-          } else if (array[0] === lemon) {
-            await db.add_coins(winnerLemonThree)
-            res.status(200).send("Winner! 3-in-a-row!")
-          } else if (array[0] === apple) {
-            await db.add_coins(winnerAppleThree)
-            res.status(200).send("Winner! 3-in-a-row!")
-          } else if (array[0] === banana) {
-            await db.add_coins(winnerBananaThree)
-            res.status(200).send("Winner! 3-in-a-row!")
-          }
+          if (array[0])
+            //const [winner] = db[array[0] + "_three"]()
+
+            if (array[0] === cherry) {
+              db.add_coins(winnerCherryThree)
+              res.status(200).send("Winner! 3-in-a-row!")
+            } else if (array[0] === lemon) {
+              db.add_coins(winnerLemonThree)
+              res.status(200).send("Winner! 3-in-a-row!")
+            } else if (array[0] === apple) {
+              db.add_coins(winnerAppleThree)
+              res.status(200).send("Winner! 3-in-a-row!")
+            } else if (array[0] === banana) {
+              db.add_coins(winnerBananaThree)
+              res.status(200).send("Winner! 3-in-a-row!")
+            }
         } else {
           if (array[0] === array[1]) {
             if (array[0] === array[2]) {
@@ -60,16 +63,16 @@ module.exports = {
               const banana = "banana"
 
               if (array[0] === cherry) {
-                await db.add_coins(winnerCherryThree)
+                db.add_coins(winnerCherryThree)
                 res.status(200).send("Winner! 3-in-a-row!")
               } else if (array[0] === lemon) {
-                await db.add_coins(winnerLemonThree)
+                db.add_coins(winnerLemonThree)
                 res.status(200).send("Winner! 3-in-a-row!")
               } else if (array[0] === apple) {
-                await db.add_coins(winnerAppleThree)
+                db.add_coins(winnerAppleThree)
                 res.status(200).send("Winner! 3-in-a-row!")
               } else if (array[0] === banana) {
-                await db.add_coins(winnerBananaThree)
+                db.add_coins(winnerBananaThree)
                 res.status(200).send("Winner! 3-in-a-row!")
               }
               return res.status(200).send("Winner! 2-in-a-row!")
@@ -91,7 +94,7 @@ module.exports = {
           }
         }
 
-        determineWinner(answers)
+        determineWinner(answers);
 
 
         // //It must determine whether index 0 is the same as index 1
@@ -104,57 +107,15 @@ module.exports = {
 
 
 
-        //If you won 3 in a row, what needs to happen next?
-        //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
-        //TODO Call the appropriate sql to pull the winnings
-        //TODO Put the winnings received into the account of the winner
-        //If you won 2 in a row, what needs to happen next?
-        //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
-        //TODO Call the appropriate sql to pull the winnings
-        //TODO Put the winnings received into the account of the winner
-
-
-
-        // const coinsWon = answers.forEach(function (element) {
-        //   let countOfCherry = 0 //searching for "cherry"
-        //   let countOfLemon = 0 //searching for "lemon"
-        //   let countOfApple = 0 //searching for "apple"
-        //   let countOfBanana = 0 //searching for "banana"
-
-        //   let answers = 0
-
-        //   if (element === "cherry") {
-        //     countOfCherry++
-        //   } else if (element === "lemon") {
-        //     countOfLemon++
-        //   } else if (element === "apple") {
-        //     countOfApple++
-        //   } else if (element === "banana") {
-        //     countOfBanana++
-        //   };
-
-        //   if (countOfCherry === 3) {
-        //     return answers = 50
-        //   } else if (countOfCherry === 2) {
-        //     return answers = 40
-        //   } else if (countOfApple === 3) {
-        //     return answers = 20
-        //   } else if (countOfApple === 2) {
-        //     return answers = 10
-        //   } else if (countOfBanana === 3) {
-        //     return answers = 15
-        //   } else if (countOfBanana === 2) {
-        //     return answers = 5
-        //   } else if (countOfLemon === 3) {
-        //     return answers = 3
-        //   };
-        //   return answers
-        // })
-
-
-
-        // if (coinsWon) {
-        //   await db.add_coins(coinsWon)
-        //   return res.status(200).send('You Won!!!')
-        // }
+        // // If you won 3 in a row, what needs to happen next?
+        // // TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+        // // TODO Call the appropriate sql to pull the winnings
+        // // TODO Put the winnings received into the account of the winner
+        // // If you won 2 in a row, what needs to happen next?
+        // // TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+        // // TODO Call the appropriate sql to pull the winnings
+        // // TODO Put the winnings received into the account of the winner
       }
+    }
+  }
+}
