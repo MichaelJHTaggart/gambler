@@ -1,1 +1,1 @@
-SELECT cherries_three FROM rewards; 
+SELECT cherries_three FROM rewards returning *; 

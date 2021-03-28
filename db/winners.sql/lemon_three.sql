@@ -1,1 +1,1 @@
-SELECT lemons FROM rewards;
+SELECT lemons FROM rewards returning *;

@@ -1,1 +1,1 @@
-SELECT bananas_two FROM rewards; 
+SELECT bananas_two FROM rewards returning *; 
