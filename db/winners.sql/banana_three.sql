@@ -1,0 +1,1 @@
+SELECT bananas_three FROM rewards; 

@@ -1,0 +1,1 @@
+SELECT cherries_three FROM rewards; 

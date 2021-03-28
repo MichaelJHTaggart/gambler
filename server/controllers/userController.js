@@ -1,3 +1,5 @@
+const { renderSync } = require("node-sass")
+
 module.exports = {
   spin: async (req, res) => {
     const db = req.app.get('db')
@@ -24,52 +26,125 @@ module.exports = {
     const reelThreeAns = reelThree[randomizer(0, 7)]
     //*Each reel answer will be calculated through a randomizer function
 
-    console.log(reelOneAns);
-
     const answers = [reelOneAns, reelTwoAns, reelThreeAns]
 
-    const coinsWon = answers.forEach(function (element) {
-      let countOfCherry = 0 //searching for "cherry"
-      let countOfLemon = 0 //searching for "lemon"
-      let countOfApple = 0 //searching for "apple"
-      let countOfBanana = 0 //searching for "banana"
+    function determineWinner(array) {
+      if (array[0] === array[1]) {
+        if (array[0] === array[2]) {
+          const cherry = "cherry"
+          const lemon = "lemon"
+          const apple = "apple"
+          const banana = "banana"
 
-      let answers = 0
-
-      if (element === "cherry") {
-        countOfCherry++
-      } else if (element === "lemon") {
-        countOfLemon++
-      } else if (element === "apple") {
-        countOfApple++
-      } else if (element === "banana") {
-        countOfBanana++
-      };
-
-      if (countOfCherry === 3) {
-        return answers = 50
-      } else if (countOfCherry === 2) {
-        return answers = 40
-      } else if (countOfApple === 3) {
-        return answers = 20
-      } else if (countOfApple === 2) {
-        return answers = 10
-      } else if (countOfBanana === 3) {
-        return answers = 15
-      } else if (countOfBanana === 2) {
-        return answers = 5
-      } else if (countOfLemon === 3) {
-        return answers = 3
-      };
-      return answers
-    })
+          if (array[0] === cherry) {
+            let [winner] = await db.cherry_three()
+          } else if (array[0] === lemon) {
+            let [winner] = await db.lemon_three()
+          } else if (array[0] === apple) {
+            let [winner] = await db.apple_three()
+          } else if (array[0] === banana) {
+            let [winner] = await db.banana_three()
+          }
 
 
 
-    if (coinsWon) {
-      await db.add_coins(coinsWon)
-      return res.status(200).send('You Won!!!')
+
+
+          res.status(200).send("Winner! 3-in-a-row!")
+
+
+          //If you won 3 in a row, what needs to happen next?
+          //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+          //TODO Call the appropriate sql to pull the winnings
+          //TODO Put the winnings received into the account of the winner
+
+
+        } else {
+          return res.status(200).send("Winner! 2-in-a-row!")
+
+          //If you won 2 in a row, what needs to happen next?
+          //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+          //TODO Call the appropriate sql to pull the winnings
+          //TODO Put the winnings received into the account of the winner
+        }
+      } else if (array[1] === array[2]) {
+        return res.status(200).send("Winner! 2-in-a-row!")
+
+        //If you won 2 in a row, what needs to happen next?
+        //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+        //TODO Call the appropriate sql to pull the winnings
+        //TODO Put the winnings received into the account of the winner
+      } else {
+        return res.status(200).send("We're sorry, you lost! Try again!")
+      }
     }
+
+    determineWinner(answers)
+
+
+    // //It must determine whether index 0 is the same as index 1
+    // //If Yes, it must now determine if index 0 is the same as index 2
+    // //If No, return (winner) **2 in a row (next to each other)
+    // //If Yes, return (winner) **3 in a row 
+    // //If No, It must determine whether index 1 is the same as index 2
+    // //If Yes, return (winner) **2 in a row (next to each other)
+    // //If No, It returns (loser)
+
+
+
+    //If you won 3 in a row, what needs to happen next?
+    //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+    //TODO Call the appropriate sql to pull the winnings
+    //TODO Put the winnings received into the account of the winner
+    //If you won 2 in a row, what needs to happen next?
+    //TODO Find out which of the four variables won ("lemon", "apple", "cherry", "banana")
+    //TODO Call the appropriate sql to pull the winnings
+    //TODO Put the winnings received into the account of the winner
+
+
+
+    // const coinsWon = answers.forEach(function (element) {
+    //   let countOfCherry = 0 //searching for "cherry"
+    //   let countOfLemon = 0 //searching for "lemon"
+    //   let countOfApple = 0 //searching for "apple"
+    //   let countOfBanana = 0 //searching for "banana"
+
+    //   let answers = 0
+
+    //   if (element === "cherry") {
+    //     countOfCherry++
+    //   } else if (element === "lemon") {
+    //     countOfLemon++
+    //   } else if (element === "apple") {
+    //     countOfApple++
+    //   } else if (element === "banana") {
+    //     countOfBanana++
+    //   };
+
+    //   if (countOfCherry === 3) {
+    //     return answers = 50
+    //   } else if (countOfCherry === 2) {
+    //     return answers = 40
+    //   } else if (countOfApple === 3) {
+    //     return answers = 20
+    //   } else if (countOfApple === 2) {
+    //     return answers = 10
+    //   } else if (countOfBanana === 3) {
+    //     return answers = 15
+    //   } else if (countOfBanana === 2) {
+    //     return answers = 5
+    //   } else if (countOfLemon === 3) {
+    //     return answers = 3
+    //   };
+    //   return answers
+    // })
+
+
+
+    // if (coinsWon) {
+    //   await db.add_coins(coinsWon)
+    //   return res.status(200).send('You Won!!!')
+    // }
   }
 
   //Another way to do this would be if we said IF there are 2 or more words that are exactly the same, return Winner!
