@@ -3,18 +3,18 @@
 I spent collectively about 8 hours on this project. Planning, and building.
 
 This project is not complete, but some of the completed aspects:
+## Basic Front-end Template
+## Redux setup
 ## Wireframing & Component Planning
-<img src="../src/media/wireframe.png">
+<img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/wireframe.png" >
 
 ## Schema
-<img src="../src/media/wireframe.png"><img src="../src/media/wireframe.png">
+<img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/schema.png" >
+<img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/pgweb.png">
 
 ## Backend Authentication
  Please see the following Post-man results
-<img src="../src/media/wireframe.png">
-
-## Basic Front-end Template
-<img src="../src/media/wireframe.png">
+<img src="https://github.com/MichaelJHTaggart/gambler/blob/main/src/media/pgweb.png">
 
 Unfortunately I encountered challenges when building out the slot machine function in the backend. This took about 4 of the eight hours that were spent working on this project. Due to this incompletion I have commented out the userController.
 
