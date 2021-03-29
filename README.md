@@ -4,7 +4,7 @@ I spent collectively about 8 hours on this project. Planning, and building.
 
 This project is not complete, but some of the completed aspects:
 ## Wireframing & Component Planning
-<img src="../src/media/wireframe.png">
+<img src="/Users/michael/gambler/src/media/wireframe.png">
 
 ## Schema
 <img src="../src/media/wireframe.png"><img src="../src/media/wireframe.png">

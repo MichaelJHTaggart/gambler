@@ -1,9 +1,6 @@
 // const { renderSync } = require("node-sass")
-module.exports = {
-  spin: async (req, res) => {
 
-  }
-}
+//Reconsider
 // module.exports = {
 //   spin: async (req, res) => {
 //     const db = req.app.get('db')

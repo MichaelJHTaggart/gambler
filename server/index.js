@@ -5,7 +5,7 @@ const massive = require('massive');
 const session = require('express-session');
 
 //Imported controller files
-const user = require('./controllers/userController');
+//const user = require('./controllers/userController');
 const auth = require('./controllers/authController');
 
 //imported variables
@@ -36,7 +36,7 @@ app.post('/auth/login', auth.login);
 app.get('/auth/user', auth.getUserSession);
 
 //User Controllers
-app.post('/user/spin', user.spin)
+//app.post('/user/spin', user.spin)
 
 
 app.get('*', (req, res) => {
