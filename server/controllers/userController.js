@@ -28,19 +28,19 @@ module.exports = {
   function threeWins(string) {
    if (string === "cherry") {
     const newAmount = 50 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! This is the big one!')
    } else if (string === "apple") {
     const newAmount = 20 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! A bushel of apples to sweeten your day!')
    } else if (string === "banana") {
     const newAmount = 15 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! You are getting ahead of the bunch!')
    } else if (string === "lemon") {
     const newAmount = 3 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send("You WON!!! Three lemons. Actually it doesn't seem like much of a victory...")
    }
   }
@@ -48,19 +48,19 @@ module.exports = {
   function twoWins(string) {
    if (string === "cherry") {
     const newAmount = 40 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! This is the second biggest haul!!!')
    } else if (string === "apple") {
     const newAmount = 10 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! Try to get 3 now!')
    } else if (string === "banana") {
     const newAmount = 5 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! Try to get 3 now!')
    } else if (string === "lemon") {
     const newAmount = 0 + userCoins
-    await db.winnings([newAmount, id])
+    db.winnings([newAmount, id])
     return res.status(200).send('You WON!!! ...but...there is no reward. Sorry :/')
    }
   }

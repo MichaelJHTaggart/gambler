@@ -5,8 +5,9 @@ const massive = require('massive');
 const session = require('express-session');
 
 //Imported controller files
-//const user = require('./controllers/userController');
+const user = require('./controllers/userController');
 const auth = require('./controllers/authController');
+
 
 //imported variables
 const { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env;
