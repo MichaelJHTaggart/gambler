@@ -1,1 +1,0 @@
-SELECT cherries_two FROM rewards returning *; 

@@ -1,1 +1,0 @@
-SELECT lemons FROM rewards returning *;

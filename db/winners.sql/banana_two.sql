@@ -1,1 +1,0 @@
-SELECT bananas_two FROM rewards returning *; 
