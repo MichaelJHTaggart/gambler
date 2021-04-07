@@ -37,7 +37,7 @@ app.post('/auth/login', auth.login);
 app.get('/auth/user', auth.getUserSession);
 
 //User Controllers
-app.post('/user/spin', user.spin)
+app.put('/user/spin', user.spin)
 
 
 app.get('*', (req, res) => {
