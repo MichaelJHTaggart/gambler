@@ -1,17 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 
 const HomePage = props => {
  const [input, setInput] = useState('')
-
- const onSubmit = (data) => {
-  console.log(data)
- }
-
- function submit(){
-  
- }
 
  return (<div>
 
