@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-import { useSelector, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { loginUser, logout } from '../redux/reducer'
 
+/* Header needs the following:
+-full_name of person on the account
+-Amount of coins in the persons account
+
+
+Needs to show the information from the store & 
+*/
 
 const Header = props => {
-  const user_id = useSelector(state => state.user_id)
-  const name = useSelector(state => state.name)
-  const coins = useSelector(state => state.coins)
 
   function logoutUser() {
     axios.delete('/auth/logout')
@@ -25,10 +29,12 @@ const Header = props => {
       <button>See all countries</button>
 
       <div>
-        <h3>Coins: {coins}</h3>
+        <Link to='/slotmachine'>
+          <h3>Coins: {props.coins}</h3>
+        </Link>
       </div>
 
-      {(!user_id)
+      {!props.id === ''
         ?
         (
           <ol>
@@ -39,7 +45,7 @@ const Header = props => {
         :
         (
           <ol>
-            <li>{`Hello ${name}`}</li>
+            <li>{`Hello ${props.full_name}`}</li>
             <Link
               to='/'
               onClick={logoutUser}
@@ -53,11 +59,8 @@ const Header = props => {
   )
 }
 
-function mapStateToProps(reduxState) {
-  return {
-    user_id: reduxState.user.user_id,
-    name: reduxState.user.name
-  }
+function mapStateToProps(state) {
+  return state
 }
 
 export default withRouter((connect(mapStateToProps, { loginUser, logout })(Header)))

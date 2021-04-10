@@ -35,6 +35,7 @@ app.use(express.static(`${__dirname}/../build`)) //serve up our build folder
 app.post('/auth/register', auth.register);
 app.post('/auth/login', auth.login);
 app.get('/auth/user', auth.getUserSession);
+app.delete('/auth/delete', auth.logout);
 
 //User Controllers
 app.put('/user/spin', user.spin)

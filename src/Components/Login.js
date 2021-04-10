@@ -12,10 +12,11 @@ const Login = props => {
     function login() {
         axios.post('/auth/login', { email, password })
             .then((res) => {
-                props.loginUser(res.data.user_id, res.data.name)
+                props.loginUser(res.data.id, res.data.full_name, res.data.coins)
                 props.history.push("/")
             })
-            .catch(err => console.log(err))
+        setEmail('')
+        setPassword('')
     }
 
     return (<div>

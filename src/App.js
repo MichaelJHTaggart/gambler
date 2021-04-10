@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react'
-import axios from 'axios'
 import routes from './Routes'
 import Header from './Components/Header'
+import axios from 'axios'
+
 
 import { connect } from 'react-redux';
 import { loginUser } from './redux/reducer'
 
-const App = props => {
-
-  useEffect((props) => {
+const App = (props) => {
+  useEffect(() => {
     axios.get(`/auth/user`).then((res) => {
-      props.loginUser(res.data.user_id, res.data.name);
+      props.loginUser(res.data.id, res.data.full_name, res.data.coins);
     }).catch(err => console.log(err))
   }, [])
-
   return (
     <div className="App">
       <Header />

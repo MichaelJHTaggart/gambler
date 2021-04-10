@@ -47,5 +47,9 @@ module.exports = {
   } else {
    res.status(404).send('No session found')
   }
+ },
+ logout: async (req, res) => {
+  req.session.destroy()
+  res.status(200).send('ok')
  }
 }
