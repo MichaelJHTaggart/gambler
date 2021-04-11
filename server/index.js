@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const session = require('express-session');
+const path = require('path');
 
 //Imported controller files
 const user = require('./controllers/userController');
@@ -39,6 +40,7 @@ app.delete('/auth/logout', auth.logout);
 
 //User Controllers
 app.put('/user/spin', user.spin)
+app.get('/user/coins', user.coins)
 
 
 app.get('*', (req, res) => {

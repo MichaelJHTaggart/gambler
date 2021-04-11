@@ -38,7 +38,7 @@ module.exports = {
    } else if (string === "apple") {
     const a3Amount = (20 + coins)
     db.winnings(a3Amount, id)
-    return res.status(200).send('You WON!!! A bushel of apples to sweeten your day!')
+    return res.status(200).send('You WON!!! A bushel of apples to sweeten your day!',)
    } else if (string === "banana") {
     const b3Amount = (15 + coins)
     db.winnings(b3Amount, id)
@@ -79,6 +79,11 @@ module.exports = {
   } else {
    return res.status(200).send('Sorry, not a winner yet. Try again!')
   }
+ },
+ coins: async (req, res) => {
+  const db = req.app.get('db')
+  const id = req.session.user.id
+  const coins = db.get_coins([id])
+  return res.status(200).send(coins)
  }
-
 }
