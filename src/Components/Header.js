@@ -22,7 +22,6 @@ const Header = props => {
       .catch(err => console.log(err))
   }
 
-
   return (
     <div>
 
@@ -34,7 +33,7 @@ const Header = props => {
         </Link>
       </div>
 
-      {!props.id === ''
+      {props.id === ''
         ?
         (
           <ol>
@@ -46,13 +45,12 @@ const Header = props => {
         (
           <ol>
             <li>{`Hello ${props.full_name}`}</li>
-            <Link
+            <button
               to='/'
               onClick={logoutUser}
             >
               Logout
-          </Link>
-
+          </button>
           </ol>
         )}
     </div>

@@ -28,7 +28,7 @@ export function logout() {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, user_id: action.payload.id, full_name: action.payload.full_name, coins: action.payload.coins }
+      return { ...state, id: action.payload.id, full_name: action.payload.full_name, coins: action.payload.coins }
     case LOGOUT:
       return initialState
     default:
