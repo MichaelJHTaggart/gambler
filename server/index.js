@@ -40,7 +40,6 @@ app.delete('/auth/logout', auth.logout);
 
 //User Controllers
 app.put('/user/spin', user.spin)
-app.get('/user/coins', user.coins)
 
 
 app.get('*', (req, res) => {

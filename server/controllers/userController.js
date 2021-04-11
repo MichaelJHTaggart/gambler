@@ -34,19 +34,19 @@ module.exports = {
    if (string === "cherry") {
     const c3Amount = (50 + coins)
     db.winnings(c3Amount, id)
-    return res.status(200).send('You WON!!! This is the big one!')
+    return res.status(200).send(`You WON!!! This is the big one! Your coin count is: ${c3Amount}`)
    } else if (string === "apple") {
     const a3Amount = (20 + coins)
     db.winnings(a3Amount, id)
-    return res.status(200).send('You WON!!! A bushel of apples to sweeten your day!',)
+    return res.status(200).send(`You WON!!! A bushel of apples to sweeten your day! Your coin count is: ${a3Amount}`)
    } else if (string === "banana") {
     const b3Amount = (15 + coins)
     db.winnings(b3Amount, id)
-    return res.status(200).send('You WON!!! You are getting ahead of the bunch!')
+    return res.status(200).send(`You WON!!! You are getting ahead of the bunch! Your coin count is: ${b3Amount}`)
    } else if (string === "lemon") {
     const l3Amount = (3 + coins)
     db.winnings(l3Amount, id)
-    return res.status(200).send("You WON!!! Three lemons. Actually it doesn't seem like much of a victory...")
+    return res.status(200).send(`You WON!!! Three lemons. Actually it doesn't seem like much of a victory... Your coin count is: ${l3Amount}`)
    }
   }
 
@@ -54,19 +54,19 @@ module.exports = {
    if (string === "cherry") {
     const cAmount = (40 + coins)
     db.winnings(cAmount, id)
-    return res.status(200).send('You WON!!! This is the second biggest haul!!!')
+    return res.status(200).send(`You WON!!! This is the second biggest haul!!! Your coin count is: ${cAmount}`)
    } else if (string === "apple") {
     const aAmount = (10 + coins)
     db.winnings(aAmount, id)
-    return res.status(200).send('You WON!!! Try to get 3 now!')
+    return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${aAmount}`)
    } else if (string === "banana") {
     const bAmount = (5 + coins)
     db.winnings(bAmount, id)
-    return res.status(200).send('You WON!!! Try to get 3 now!')
+    return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${bAmount}`)
    } else if (string === "lemon") {
     const lAmount = (0 + coins)
     db.winnings(lAmount, id)
-    return res.status(200).send('You WON!!! ...but...there is no reward. Sorry :/')
+    return res.status(200).send(`You WON!!! ...but...there is no reward. Sorry :/ Your coin count is: ${lAmount}`)
    }
   }
 
@@ -79,11 +79,5 @@ module.exports = {
   } else {
    return res.status(200).send('Sorry, not a winner yet. Try again!')
   }
- },
- coins: async (req, res) => {
-  const db = req.app.get('db')
-  const id = req.session.user.id
-  const coins = db.get_coins([id])
-  return res.status(200).send(coins)
  }
 }

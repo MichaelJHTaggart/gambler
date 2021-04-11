@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { loginUser } from './redux/reducer'
 
 const App = (props) => {
-  useEffect((props) => {
+  useEffect(() => {
     axios.get(`/auth/user`).then((res) => {
       props.loginUser(res.data.id, res.data.full_name, res.data.coins);
     }).catch(err => console.log(err))
