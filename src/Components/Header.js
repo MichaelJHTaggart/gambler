@@ -45,7 +45,7 @@ const Header = props => {
           :
           (
             <ol>
-              <li>{`Hello ${props.full_name}`}</li>
+              <Link to='/'>{`Hello ${props.full_name}`}</Link>
               <button
                 to='/'
                 onClick={logoutUser}

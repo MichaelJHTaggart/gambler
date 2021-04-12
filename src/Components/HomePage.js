@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import CountryList from './CountryList';
 
 
 const HomePage = props => {
@@ -9,9 +8,11 @@ const HomePage = props => {
 
  function countryNames() {
   axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
-   setOutput(res.data.name)
+   setOutput(res.data)
   })
  }
+ console.log(input)
+ console.log(output)
 
  return (<div>
 
@@ -32,6 +33,14 @@ const HomePage = props => {
   <h3>{output}</h3>
 
 
+
+  {/* {output.map((country) => {
+   return (
+    <Link key={country.name} to={`/${country.name}`}>
+     <h2>{country.name}</h2>
+    </Link>
+   )
+  })} */}
  </div>
  )
 }
