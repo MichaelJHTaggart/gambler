@@ -77,7 +77,7 @@ module.exports = {
   } else if (reelTwoAns === reelThreeAns) {
    return twoWins(reelTwoAns)
   } else {
-   return res.status(200).send('Sorry, not a winner yet. Try again!')
+   return res.status(200).send(`Sorry, not a winner yet. Try again! ${req.session.user.coins}`)
   }
  }
 }

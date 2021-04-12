@@ -25,7 +25,7 @@ const Header = props => {
   return (
     <div>
 
-      <button>See all countries</button>
+      <Link to='/countryList'> See all countries</Link>
 
       <div>
         <Link to='/slotmachine'>
@@ -33,27 +33,29 @@ const Header = props => {
         </Link>
       </div>
 
-      {props.id === ''
-        ?
-        (
-          <ol>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/register' >Register</Link></li>
-          </ol>
-        )
-        :
-        (
-          <ol>
-            <li>{`Hello ${props.full_name}`}</li>
-            <button
-              to='/'
-              onClick={logoutUser}
-            >
-              Logout
+      {
+        props.id === ''
+          ?
+          (
+            <ol>
+              <li><Link to='/login'>Login</Link></li>
+              <li><Link to='/register' >Register</Link></li>
+            </ol>
+          )
+          :
+          (
+            <ol>
+              <li>{`Hello ${props.full_name}`}</li>
+              <button
+                to='/'
+                onClick={logoutUser}
+              >
+                Logout
           </button>
-          </ol>
-        )}
-    </div>
+            </ol>
+          )
+      }
+    </div >
   )
 }
 

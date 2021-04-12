@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import CountryList from './CountryList';
 
 
 const HomePage = props => {
  const [input, setInput] = useState('')
+ const [output, setOutput] = useState([])
+
+ function countryNames() {
+  axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
+   setOutput(res.data.name)
+  })
+ }
 
  return (<div>
 
@@ -16,7 +25,12 @@ const HomePage = props => {
 
   </form>
 
-  <button>Search</button>
+  <button
+   onClick={countryNames}
+  >Search</button>
+
+  <h3>{output}</h3>
+
 
  </div>
  )

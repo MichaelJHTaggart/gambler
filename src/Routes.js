@@ -5,6 +5,8 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import SlotMachine from './Components/SlotMachine';
 import ForgotPassword from './Components/ForgotPassword';
+import CountryList from './Components/CountryList';
+import Country from './Components/Country';
 
 export default (
  <Switch>
@@ -13,5 +15,7 @@ export default (
   <Route exact path='/register' component={Register} />
   <Route exact path='/slotmachine' component={SlotMachine} />
   <Route exact path='/forgot-password' component={ForgotPassword} />
+  <Route exact path='/countryList' component={CountryList} />
+  <Route exact path='/:name' component={Country} />
  </Switch>
 )
