@@ -1,47 +1,49 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom'
 
 const HomePage = props => {
- const [input, setInput] = useState('')
- const [output, setOutput] = useState([])
+  const [input, setInput] = useState('')
+  const [output, setOutput] = useState([])
 
- function countryNames() {
-  axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
-   setOutput(res.data)
-  })
- }
- console.log(input)
- console.log(output)
+  function countryNames() {
+    axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
+      console.log(res.data)
+      const newOutput = res.data.map(function (element) {
+        return element.name
+      });
+      setOutput(newOutput)
 
- return (<div>
+    })
+  }
 
-  <form>
-   <input
-    placeholder="Search for a country"
-    type="text"
-    value={input}
-    onChange={e => setInput(e.target.value)}
-   ></input>
+  return (
+    <div>
 
-  </form>
+      <form>
+        <input
+          placeholder="Search for a country"
+          type="text"
+          value={input}
+          onChange={e => setInput(e.target.value)}
+        ></input>
 
-  <button
-   onClick={countryNames}
-  >Search</button>
+      </form>
 
-  <h3>{output}</h3>
+      <button
+        onClick={countryNames}
+      >Search</button>
 
-
-
-  {/* {output.map((country) => {
-   return (
-    <Link key={country.name} to={`/${country.name}`}>
-     <h2>{country.name}</h2>
-    </Link>
-   )
-  })} */}
- </div>
- )
+      <div>{output}
+        {/* {output.map((country) => {
+          return (
+            <Link key={country.url} to={`/${country.name}`}>
+              <h2>{country.name}</h2>
+            </Link>
+          )
+        })} */}
+      </div>
+    </div>
+  )
 }
 export default HomePage
