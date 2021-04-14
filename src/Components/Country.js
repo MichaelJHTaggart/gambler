@@ -55,7 +55,7 @@ const Country = (props) => {
     </h2>
    </section>
 
-   <Link to='/countryList'>Back to List of Countries</Link>
+   <Link className="link-text" to='/countryList'>Back to List of Countries</Link>
   </div>
  )
 }

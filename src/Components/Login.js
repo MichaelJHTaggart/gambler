@@ -49,7 +49,7 @@ const Login = props => {
 
         <div></div>
 
-        <Link to='/register'>New to Handle While? Create an account now!</Link>
+        <Link to='/register'>Want to get some coins and spin the slot machine? Create an account now!</Link>
 
     </div>
 

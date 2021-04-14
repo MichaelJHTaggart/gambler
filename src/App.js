@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import routes from './Routes'
 import Header from './Components/Header'
 import axios from 'axios'
+import '../src/scss/main.scss'
 
 
 import { connect } from 'react-redux';

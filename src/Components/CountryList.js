@@ -14,7 +14,7 @@ const CountryList = (props) => {
  return (<div>
   {list.map((country) => {
    return (
-    <Link key={country.name} to={`/${country.name}`}>
+    <Link className="link-text" key={country.name} to={`/${country.name}`}>
      <h2>{country.name}</h2>
     </Link>
    )

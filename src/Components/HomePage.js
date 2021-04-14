@@ -38,7 +38,7 @@ const HomePage = props => {
       <div>
         {output.map((country) => {
           return (
-            <Link key={country} to={`/${country}`}>
+            <Link className="link-text" key={country} to={`/${country}`}>
               <h2>{country}</h2>
             </Link>
           )
