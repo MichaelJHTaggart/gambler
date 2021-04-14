@@ -19,29 +19,30 @@ const HomePage = props => {
 
   return (
     <div>
-
       <form>
         <input
           placeholder="Search for a country"
           type="text"
           value={input}
           onChange={e => setInput(e.target.value)}
-        ></input>
-
+        >
+        </input>
       </form>
 
       <button
         onClick={countryNames}
-      >Search</button>
+      >
+        Search
+      </button>
 
-      <div>{output}
-        {/* {output.map((country) => {
+      <div>
+        {output.map((country) => {
           return (
-            <Link key={country.url} to={`/${country.name}`}>
-              <h2>{country.name}</h2>
+            <Link key={country} to={`/${country}`}>
+              <h2>{country}</h2>
             </Link>
           )
-        })} */}
+        })}
       </div>
     </div>
   )
