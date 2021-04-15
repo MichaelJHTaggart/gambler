@@ -1,3 +1,4 @@
+/* reset styles */
 @import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -360,6 +361,9 @@ textarea {
   padding: 0.2em 0;
 }
 
+/* font styles */
+/* variables */
+/* base styles */
 .App {
   background-color: #25A18E;
   font-family: 'Saira Stencil One', cursive;
@@ -369,7 +373,7 @@ textarea {
   list-style: none;
   list-style-type: none;
   outline: none;
-  color: #004E64;
+  color: #7AE582;
   text-decoration: none;
   border: none;
 }

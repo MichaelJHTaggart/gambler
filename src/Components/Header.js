@@ -24,10 +24,12 @@ const Header = props => {
 
   return (
     <header id="content">
-      <Link className="link-text" to='/countryList'> See all countries</Link>
-      <div className="slotmachine-nav header-item">
-        <Link className="link-text" to='/slotmachine'>
-          <h3>Coins: {props.coins}</h3>
+      <div className="column">
+        <Link className="link-style" to='/countryList'> See all countries</Link>
+      </div>
+      <div className="column">
+        <Link className="link-style" to='/slotmachine'>
+           <h3>Coins: {props.coins}</h3>
         </Link>
       </div>
 
@@ -35,17 +37,17 @@ const Header = props => {
         props.id === ''
           ?
           (
-            <ol className="link-text">
-              <li className="header-item"><Link className="link-text" to='/login'>Login</Link></li>
-              <li className="header-item"><Link className="link-text" to='/register' >Register</Link></li>
+            <ol className="column">
+              <li><Link className="link-style" to='/login'>Login</Link></li>
+              <li><Link className="link-style" to='/register' >Register</Link></li>
             </ol>
           )
           :
           (
-            <ol className="link-text">
-              <Link className="link-text" className="link header-item" to='/'>{`Hello ${props.full_name}`}
+            <ol className="column">
+              <Link className="link-style" to='/'>{`Hello ${props.full_name}`}
               </Link>
-              <button className="link-text"
+              <button
                 to='/'
                 onClick={logoutUser}
               >

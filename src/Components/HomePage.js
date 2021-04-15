@@ -21,6 +21,7 @@ const HomePage = props => {
     <div>
       <form>
         <input
+          className="form-field"
           placeholder="Search for a country"
           type="text"
           value={input}

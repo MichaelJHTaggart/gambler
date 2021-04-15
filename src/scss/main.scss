@@ -1,22 +1,27 @@
+/* reset styles */
 @import './reset.scss';
+@import './Header';
+@import './HomePage';
+
+/* font styles */
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
 
-$header-background: #9FFFCB;
+/* variables */
 $header-accent: #7AE582;
 $body-background:#25A18E;
 $body-accent: #00A5CF;
-$background-accent: #004E64;
 $hover-accent:#012029;
 
+/* base styles */
 .App{
  background-color:$body-background;
  font-family: 'Saira Stencil One', cursive;
 }
-.link-text{
+.link-style{
  list-style: none;
  list-style-type: none;
  outline: none;
- color: $background-accent;
+ color: $header-accent;
  text-decoration: none;
  border: none;
  :hover{
@@ -28,7 +33,6 @@ $hover-accent:#012029;
   -moz-outline-style: none;
 }
 }
-
 
 /* mobile styles */
 
