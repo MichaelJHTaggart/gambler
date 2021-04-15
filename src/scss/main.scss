@@ -9,12 +9,8 @@ $background-accent: #004E64;
 $hover-accent:#012029;
 
 .App{
- display: flex;
  background-color:$body-background;
  font-family: 'Saira Stencil One', cursive;
- height: 100vh;
- width: 100vw;
- outline: none;
 }
 .link-text{
  list-style: none;
@@ -32,7 +28,21 @@ $hover-accent:#012029;
   -moz-outline-style: none;
 }
 }
-.link{
- display: flex;
- justify-content: space-around;
+
+
+/* mobile styles */
+
+/* small tablet styles */
+@media screen and(min-width: 620px) {
+ 
+}
+
+/* large tablets & laptops styles */
+@media screen and(min-width: 960px) {
+ 
+}
+
+/* desktop styles */
+@media screen and(min-width: 1200px) {
+ 
 }
