@@ -18,17 +18,23 @@ const HomePage = props => {
 
   return (
     <div id="search-function">
-      <form class="form__group field">
+      <form className="form__group field">
         <input
-          type="input" class="form__field" name="name" id='name' required
+          type="input" className="form__field" id='name'
           placeholder="Search for a country"
           value={input}
           onChange={e => {
-            e.preventDefault();
             setInput(e.target.value)
           }}
+          onKeyUp={e => {
+            e.preventDefault();
+            setInput(e.target.value);
+            if (e.code === "Enter") {
+              countryNames();
+            }
+          }}
         />
-        <label for="name" class="form__label">Type in the name of a country...</label>
+        <label htmlFor="name" className="form__label">Type in the name of a country...</label>
       </form>
 
 

@@ -22,12 +22,14 @@ const Register = props => {
         setPassword('')
     }
 
-    return (<div>
+    return (<div id="country-wrapper">
 
-        <h1>Create Account</h1>
+        <h1 className="country-name">Register</h1>
 
-        <p>Username</p>
+        <p className="answers">Username</p>
         <input
+            placeholder="Search for a country"
+            className="form__field"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             type="text"
@@ -36,8 +38,10 @@ const Register = props => {
         >
         </input>
 
-        <p>Email</p>
+        <p className="answers">Email</p>
         <input
+            placeholder="Search for a country"
+            className="form__field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="text"
@@ -45,8 +49,10 @@ const Register = props => {
             name="email" required
         >
         </input>
-        <p>Password</p>
+        <p className="answers">Password</p>
         <input
+            placeholder="Search for a country"
+            className="form__field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -55,10 +61,10 @@ const Register = props => {
         >
         </input>
 
-        <button onClick={createAccount}
+        <button id="rainbow-1" onClick={createAccount}
         >Create My Account</button>
 
-        <Link to='/sign-in'>Already have an account? Sign in now!</Link>
+        <Link to='/login'>Already have an account? Sign in now!</Link>
     </div>
 
     )

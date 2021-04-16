@@ -19,12 +19,14 @@ const Login = props => {
         setPassword('')
     }
 
-    return (<div>
+    return (<div id="country-wrapper">
 
-        <h1>Sign In</h1>
+        <h1 className="country-name">Login</h1>
 
-        <p>Email</p>
+        <p className="answers">Email</p>
         <input
+            placeholder="Search for a country"
+            className="form__field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="text"
@@ -32,8 +34,11 @@ const Login = props => {
             name="email" required
         >
         </input>
-        <p>Password</p>
+
+        <p className="answers">Password</p>
         <input
+            placeholder="Search for a country"
+            className="form__field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -42,7 +47,7 @@ const Login = props => {
         >
         </input>
 
-        <button onClick={login}
+        <button id="rainbow-1" onClick={login}
         >Sign In</button>
 
         <Link to="/forgot-password">Forgot your password?</Link>

@@ -4,6 +4,7 @@
  grid-template-columns: repeat(1, 1fr);
  grid-auto-rows: minmax(70px, auto);
  justify-items: center;
+ align-items: center;
 }
 section{
  display: grid;
@@ -12,14 +13,17 @@ section{
 .questions{
  font-size: 1.4em;
  margin: 10px;
+ pointer-events: none;
 }
 .answers{
  font-size: 1.4em;
  margin: 10px;
  color: #FF8600;
+ pointer-events: none;
 }
 .country-name{
  font-size: 3em;
+ pointer-events: none;
 }
 
 .country-flag{
