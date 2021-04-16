@@ -8,7 +8,6 @@ const HomePage = props => {
 
   function countryNames() {
     axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
-      console.log(res.data)
       const newOutput = res.data.map(function (element) {
         return element.name
       });
@@ -18,29 +17,33 @@ const HomePage = props => {
   }
 
   return (
-    <div>
-      <form>
+    <div id="search-function">
+      <form class="form__group field">
         <input
-          className="form-field"
+          type="input" class="form__field" name="name" id='name' required
           placeholder="Search for a country"
-          type="text"
           value={input}
-          onChange={e => setInput(e.target.value)}
-        >
-        </input>
+          onChange={e => {
+            e.preventDefault();
+            setInput(e.target.value)
+          }}
+        />
+        <label for="name" class="form__label">Type in the name of a country...</label>
       </form>
 
-      <button
+
+
+      <button id="rainbow-1"
         onClick={countryNames}
       >
-        Search
+        Click here to search!
       </button>
 
-      <div>
+      <div id="search-function">
         {output.map((country) => {
           return (
-            <Link className="link-text" key={country} to={`/${country}`}>
-              <h2>{country}</h2>
+            <Link key={country} to={`/${country}`}>
+              <h2 className="search-results">{country}</h2>
             </Link>
           )
         })}
