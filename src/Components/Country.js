@@ -15,7 +15,7 @@ const Country = (props) => {
  return (
   <div>
    <h1>{country.name}</h1>
-   <img alt={country.name} src={country.flag} />
+   <img className="country-flag" alt={country.name} src={country.flag} />
 
    {/* Add these questions next. Figure out how to map over the multiple objects.
    

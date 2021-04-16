@@ -361,28 +361,137 @@ textarea {
   padding: 0.2em 0;
 }
 
+#content {
+  display: -ms-grid;
+  display: grid;
+  max-width: 960px;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(70px, auto);
+  border-bottom: 3px solid blue;
+  background-color: #25A18E;
+}
+
+.column {
+  padding: 20px;
+}
+
+.form-field {
+  /* reset input */
+}
+
+.form-field .form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form-field .form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid grey;
+  outline: 0;
+  font-size: 1.3rem;
+  color: white;
+  padding: 7px 0;
+  background: transparent;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+
+.form-field .form__field::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-field .form__field:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-field .form__field::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-field .form__field::placeholder {
+  color: transparent;
+}
+
+.form-field .form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form-field .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: gray;
+}
+
+.form-field .form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  -o-border-image: linear-gradient(to right, blue, white);
+     border-image: -webkit-gradient(linear, left top, right top, from(blue), to(white));
+     border-image: linear-gradient(to right, blue, white);
+  border-image-slice: 1;
+}
+
+.form-field .form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: blue;
+  font-weight: 700;
+}
+
+.form-field .form__field:required, .form-field .form__field:invalid {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.country-flag {
+  width: 290px;
+  height: 200px;
+}
+
 /* font styles */
 /* variables */
 /* base styles */
+* {
+  background-color: #D1CCDC;
+}
+
 .App {
-  background-color: #25A18E;
+  background-color: #D1CCDC;
   font-family: 'Saira Stencil One', cursive;
 }
 
-.link-text {
+.link-style {
   list-style: none;
   list-style-type: none;
   outline: none;
   color: #7AE582;
   text-decoration: none;
   border: none;
+  margin-top: 5px;
+  padding: 2px;
 }
 
-.link-text :hover {
+.link-style :hover {
   color: #012029;
 }
 
-.link-text a:active, .link-text a:focus {
+.link-style a:active, .link-style a:focus {
   outline: 0;
   border: none;
   -moz-outline-style: none;

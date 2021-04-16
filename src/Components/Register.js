@@ -58,8 +58,6 @@ const Register = props => {
         <button onClick={createAccount}
         >Create My Account</button>
 
-        <div></div>
-
         <Link to='/sign-in'>Already have an account? Sign in now!</Link>
     </div>
 

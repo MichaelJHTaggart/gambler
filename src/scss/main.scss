@@ -2,37 +2,54 @@
 @import './reset.scss';
 @import './Header';
 @import './HomePage';
+@import './Country';
+// @import './CountryList';
+// @import './ForgotPassword';
+// @import './HomeSearchList';
+// @import './Login';
+// @import './Register';
+// @import './SlotMachine';
 
 /* font styles */
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
 
 /* variables */
-$header-accent: #7AE582;
-$body-background:#25A18E;
-$body-accent: #00A5CF;
-$hover-accent:#012029;
+$primary: #F1F2F6;
+$secondary: #FF8600;
+$header-accent: #27187E;
+$text:#27187E;
+$body-accent: #AEB8FE;
+$hover-accent:#758BFD;
 
 /* base styles */
+*{
+  background-color: $primary;
+  margin: 5px;
+  padding: 5px;
+    list-style: none;
+    list-style-type: none;
+    outline: none;
+    color: $header-accent;
+    text-decoration: none;
+    border: none;
+    margin-top: 5px;
+    padding: 2px;
+    
+    :hover{
+     color: $hover-accent;
+    }
+    a:active, a:focus {
+     outline: 0;
+     border: none;
+     -moz-outline-style: none;
+   }
+}
 .App{
- background-color:$body-background;
+ 
+ background-color: $primary;
  font-family: 'Saira Stencil One', cursive;
 }
-.link-style{
- list-style: none;
- list-style-type: none;
- outline: none;
- color: $header-accent;
- text-decoration: none;
- border: none;
- :hover{
-  color: $hover-accent;
- }
- a:active, a:focus {
-  outline: 0;
-  border: none;
-  -moz-outline-style: none;
-}
-}
+
 
 /* mobile styles */
 

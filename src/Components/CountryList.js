@@ -11,11 +11,11 @@ const CountryList = (props) => {
   })
  }, [])
 
- return (<div>
+ return (<div id="content">
   {list.map((country) => {
    return (
-    <Link className="link-text" key={country.name} to={`/${country.name}`}>
-     <h2>{country.name}</h2>
+    <Link className="list" key={country.name} to={`/${country.name}`}>
+     <h2 className="list">{country.name}</h2>
     </Link>
    )
   })}
