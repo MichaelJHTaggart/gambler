@@ -1,3 +1,27 @@
+#country-wrapper{
+ display: grid;
+ max-width: 920px;
+ grid-template-columns: repeat(1, 1fr);
+ grid-auto-rows: minmax(70px, auto);
+ justify-items: center;
+}
+section{
+ display: grid;
+ justify-items: inherit;
+}
+.questions{
+ font-size: 1.4em;
+ margin: 10px;
+}
+.answers{
+ font-size: 1.4em;
+ margin: 10px;
+ color: #FF8600;
+}
+.country-name{
+ font-size: 3em;
+}
+
 .country-flag{
  width: 290px;
  height: 200px;

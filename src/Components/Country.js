@@ -13,49 +13,49 @@ const Country = (props) => {
  }, [name])
 
  return (
-  <div>
-   <h1>{country.name}</h1>
+  <div id="country-wrapper">
+   <h1 class="country-name">{country.name}</h1>
    <img className="country-flag" alt={country.name} src={country.flag} />
 
    {/* Add these questions next. Figure out how to map over the multiple objects.
    
    <section>
-    <h2>
+    <h2 className="questions">
      What languages do we speak?
     </h2>
-    <h2>
+    <h2 className="answers">
      {languages}
     </h2>
    </section> */}
    {/* 
    <section>
-    <h2>
+    <h2 className="questions">
      What is the name of our money?
     </h2>
-    <h2>
+    <h2 className="answers">
      {country.currencies.name[0]}
     </h2>
    </section> */}
 
    <section>
-    <h2>
+    <h2 className="questions">
      What is the name of our capital?
     </h2>
-    <h2>
+    <h2 className="answers">
      {country.capital}
     </h2>
    </section>
 
    <section>
-    <h2>
+    <h2 className="questions">
      How many people live here?
     </h2>
-    <h2>
+    <h2 className="answers">
      {country.population}
     </h2>
    </section>
 
-   <Link className="link-text" to='/countryList'>Back to List of Countries</Link>
+   <Link to='/countryList'>Back to List of Countries</Link>
   </div>
  )
 }
