@@ -510,7 +510,7 @@ a {
 #country-wrapper {
   display: -ms-grid;
   display: grid;
-  max-width: 920px;
+  max-width: 15360px;
   -ms-grid-columns: (1fr)[1];
       grid-template-columns: repeat(1, 1fr);
   grid-auto-rows: minmax(70px, auto);

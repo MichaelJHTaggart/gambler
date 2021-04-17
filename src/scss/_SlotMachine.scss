@@ -1,0 +1,23 @@
+#slot-wrapper{
+ display: grid;
+ max-width: 15360px;
+ grid-template-columns: repeat(1, 1fr);
+ grid-auto-rows: minmax(70px, auto);
+ justify-items: center;
+ align-items: center;
+}
+
+.slot-machine{
+ height: 320px;
+ width: 300px;
+}
+.slot{
+ height: 75px;
+ width: 50px;
+}
+.spin-button{
+ background-color: red;
+ height: 123px;
+ width: 300px;
+ font-size: 3em;
+}
