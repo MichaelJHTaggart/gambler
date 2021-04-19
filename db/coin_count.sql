@@ -1,1 +1,1 @@
-SELECT coins FROM users WHERE id = $1
+SELECT coins FROM users WHERE id = $1;

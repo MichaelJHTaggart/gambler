@@ -22,7 +22,7 @@ const SlotMachine = props => {
   return (<div>
 
     <div id="slot-wrapper">
-      Message: {response}
+      {response}
     </div>
 
     <div>

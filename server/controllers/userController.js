@@ -2,19 +2,21 @@ module.exports = {
  spin: async (req, res) => {
   const db = req.app.get('db')
   const id = req.session.user.id
-  const counter = (db.coin_count(req.session.user.id))
-  const coins = [coins.counter]
 
-  console.log(coins)
+  async function coins(id) {
+   const coinTotal = await db.coin_count(id)
+   const coinCount = parseInt(coinTotal[0].coins)
+   return coinCount
+  }
 
-  if (coins === 0) {
+  if (coins(id) === 0) {
    return response.status(400).send('You do not have enough coins to use the slot machine!')
   }
 
-  async function minusOne() {
-   const [anAmount] = await (db.coin_count(req.session.user.id))
-   console.log(anAmount)
-   db.spin_cost(anAmount, req.session.user.id)
+  function minusOne(id) {
+   const minusCoin = coins(id) - 1
+   console.log(minusCoin)
+   db.spin_cost(minusCoin, id)
   }
 
   const reelOne = ["cherry", "lemon", "apple", "lemon", "banana", "banana", "lemon", "lemon"]
@@ -34,48 +36,56 @@ module.exports = {
 
   function threeWins(string) {
    if (string === "cherry") {
-    const c3Amount = (50 + coins)
+    const totalCoins = coins(id)
+    const c3Amount = (50 + totalCoins)
     db.winnings(c3Amount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! This is the big one! Your coin count is: ${c3Amount}`)
    } else if (string === "apple") {
-    const a3Amount = (20 + coins)
+    const totalCoins = coins(id)
+    const a3Amount = (20 + totalCoins)
     db.winnings(a3Amount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! A bushel of apples to sweeten your day! Your coin count is: ${a3Amount}`)
    } else if (string === "banana") {
-    const b3Amount = (15 + coins)
-    minusOne()
+    const totalCoins = coins(id)
+    const b3Amount = (15 + totalCoins)
+    minusOne(id)
     db.winnings(b3Amount, id)
     return res.status(200).send(`You WON!!! You are getting ahead of the bunch! Your coin count is: ${b3Amount}`)
    } else if (string === "lemon") {
-    const l3Amount = (3 + coins)
+    const totalCoins = coins(id)
+    const l3Amount = (3 + totalCoins)
     db.winnings(l3Amount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! Three lemons. Actually it doesn't seem like much of a victory... Your coin count is: ${l3Amount}`)
    }
   }
 
   function twoWins(string) {
    if (string === "cherry") {
-    const cAmount = (40 + coins)
+    const totalCoins = coins(id)
+    const cAmount = (40 + totalCoins)
     db.winnings(cAmount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! This is the second biggest haul!!! Your coin count is: ${cAmount}`)
    } else if (string === "apple") {
-    const aAmount = (10 + coins)
+    const totalCoins = coins(id)
+    const aAmount = (10 + totalCoins)
     db.winnings(aAmount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${aAmount}`)
    } else if (string === "banana") {
-    const bAmount = (5 + coins)
+    const totalCoins = coins(id)
+    const bAmount = (5 + totalCoins)
     db.winnings(bAmount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${bAmount}`)
    } else if (string === "lemon") {
-    const lAmount = (0 + coins)
+    const totalCoins = coins(id)
+    const lAmount = (0 + totalCoins)
     db.winnings(lAmount, id)
-    minusOne()
+    minusOne(id)
     return res.status(200).send(`You WON!!! ...but...there is no reward. Sorry :/ Your coin count is: ${lAmount}`)
    }
   }
@@ -87,7 +97,7 @@ module.exports = {
   } else if (reelTwoAns === reelThreeAns) {
    return twoWins(reelTwoAns)
   } else {
-   minusOne()
+   minusOne(id)
    return res.status(200).send(`Sorry, not a winner yet. Try again! ${req.session.user.coins}`)
   }
  }
