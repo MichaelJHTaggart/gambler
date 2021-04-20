@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux';
+import { coinUpdate } from '../redux/reducer'
 import Apple from '../assets/apple.png'
 import Banana from '../assets/banana.png'
 import Lemon from '../assets/lemon.png'
@@ -13,8 +15,8 @@ const SlotMachine = props => {
 
   function spin() {
     axios.put('/user/spin').then((res) => {
+      props.coinUpdate(res.data)
       setResponse(res.data)
-      console.log(res)
     })
       .catch(err => console.log(err))
   }
@@ -22,15 +24,15 @@ const SlotMachine = props => {
   return (<div>
 
     <div id="slot-wrapper">
-      {response}
+
     </div>
 
     <div>
-      <img class="slot-machine" alt="slot machine" src={Slot} />
-      <img class="slot" alt="apple" src={Apple} />
-      <img class="slot" alt="lemon" src={Lemon} />
-      <img class="slot" alt="cherry" src={Cherry} />
-      <img class="slot" alt="banana" src={Banana} />
+      <img className="slot-machine" alt="slot machine" src={Slot} />
+      <img className="slot" alt="apple" src={Apple} />
+      <img className="slot" alt="lemon" src={Lemon} />
+      <img className="slot" alt="cherry" src={Cherry} />
+      <img className="slot" alt="banana" src={Banana} />
     </div>
 
 
@@ -44,4 +46,4 @@ const SlotMachine = props => {
 
   )
 }
-export default SlotMachine
+export default connect(null, { coinUpdate })(SlotMachine)

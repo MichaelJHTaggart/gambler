@@ -35,68 +35,63 @@ module.exports = {
 
   async function threeWins(string) {
    if (string === "cherry") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const c3Amount = (50 + totalCoins)
     db.winnings(c3Amount, id)
-    return res.status(200).send(`You WON!!! This is the big one! Your coin count is: ${c3Amount}`)
+    return res.status(200).send(`${c3Amount}`)
    } else if (string === "apple") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const a3Amount = (20 + totalCoins)
     db.winnings(a3Amount, id)
-    return res.status(200).send(`You WON!!! A bushel of apples to sweeten your day! Your coin count is: ${a3Amount}`)
+    return res.status(200).send(`${a3Amount}`)
    } else if (string === "banana") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const b3Amount = (15 + totalCoins)
     db.winnings(b3Amount, id)
-    return res.status(200).send(`You WON!!! You are getting ahead of the bunch! Your coin count is: ${b3Amount}`)
+    return res.status(200).send(`${b3Amount}`)
    } else if (string === "lemon") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const l3Amount = (3 + totalCoins)
     db.winnings(l3Amount, id)
-    return res.status(200).send(`You WON!!! Three lemons. Actually it doesn't seem like much of a victory... Your coin count is: ${l3Amount}`)
+    return res.status(200).send(`${l3Amount}`)
    }
   }
 
   async function twoWins(string) {
    if (string === "cherry") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const cAmount = (40 + totalCoins)
     db.winnings(cAmount, id)
-    return res.status(200).send(`You WON!!! This is the second biggest haul!!! Your coin count is: ${cAmount}`)
+    return res.status(200).send(`${cAmount}`)
    } else if (string === "apple") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const aAmount = (10 + totalCoins)
     db.winnings(aAmount, id)
-    return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${aAmount}`)
+    return res.status(200).send(`${aAmount}`)
    } else if (string === "banana") {
-    minusOne(id)
     const totalCoins = await coins(id)
     const bAmount = (5 + totalCoins)
     db.winnings(bAmount, id)
-    return res.status(200).send(`You WON!!! Try to get 3 now! Your coin count is: ${bAmount}`)
+    return res.status(200).send(`${bAmount}`)
    } else if (string === "lemon") {
-    minusOne(id)
     const totalCoins = await coins(id)
-    return res.status(200).send(`You WON!!! ...but...there is no reward. Sorry :/ Your coin count is: ${totalCoins}`)
+    return res.status(200).send(`${totalCoins}`)
    }
   }
 
   if (reelOneAns === reelTwoAns && reelTwoAns === reelThreeAns) {
+   await minusOne(id)
    return threeWins(reelOneAns)
   } else if (reelOneAns === reelTwoAns) {
+   await minusOne(id)
    return twoWins(reelOneAns)
   } else if (reelTwoAns === reelThreeAns) {
+   await minusOne(id)
    return twoWins(reelTwoAns)
   } else {
-   minusOne(id)
+   await minusOne(id)
    totalCoins = await coins(id)
-   return res.status(200).send(`Sorry, not a winner yet. Try again! ${totalCoins}`)
+   return res.status(200).send(`${totalCoins}`)
   }
  }
 }

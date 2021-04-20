@@ -7,6 +7,7 @@ const initialState = {
 
 //action constants
 const LOGIN_USER = 'LOGIN_USER';
+const COIN_UPDATE = 'COIN_UPDATE';
 const LOGOUT = 'LOGOUT';
 
 //action creators
@@ -14,6 +15,13 @@ export function loginUser(id, full_name, coins) {
   return {
     type: LOGIN_USER,
     payload: { id, full_name, coins }
+  };
+};
+
+export function coinUpdate(coins) {
+  return {
+    type: COIN_UPDATE,
+    payload: { coins }
   };
 };
 
@@ -29,6 +37,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
       return { ...state, id: action.payload.id, full_name: action.payload.full_name, coins: action.payload.coins }
+    case COIN_UPDATE:
+      return { coins: action.payload.coins }
     case LOGOUT:
       return initialState
     default:
