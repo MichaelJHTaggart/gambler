@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import axios from 'axios'
-import { connect } from 'react-redux';
-import { coinUpdate } from '../redux/reducer'
+import { connect, useSelector } from 'react-redux';
+import { loginUser } from '../redux/reducer'
+
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Apple from '../assets/apple.png'
 import Banana from '../assets/banana.png'
 import Lemon from '../assets/lemon.png'
@@ -9,23 +14,29 @@ import Cherry from '../assets/cherry.png'
 import Slot from '../assets/slot.png'
 
 const SlotMachine = props => {
-
-  const [response, setResponse] = useState('')
-
+  const id = useSelector(state => state.id)
+  const name = useSelector(state => state.full_name)
 
   function spin() {
     axios.put('/user/spin').then((res) => {
-      props.coinUpdate(res.data)
-      setResponse(res.data)
+      props.loginUser(id, name, res.data)
     })
-      .catch(err => console.log(err))
+      .catch(err => {
+        if (err) {
+          toast("API ERROR", {
+            className: "error-toast",
+            draggable: true,
+            position: toast.POSITION.TOP_CENTER
+          })
+        }
+      })
   }
 
-  return (<div>
+  return (<div id="slot-wrapper">
 
-    <div id="slot-wrapper">
-
-    </div>
+    <>
+      <ToastContainer />
+    </>
 
     <div>
       <img className="slot-machine" alt="slot machine" src={Slot} />
@@ -46,4 +57,4 @@ const SlotMachine = props => {
 
   )
 }
-export default connect(null, { coinUpdate })(SlotMachine)
+export default connect(null, { loginUser })(SlotMachine)

@@ -28,35 +28,32 @@ const Register = props => {
 
         <p className="answers">Username</p>
         <input
-            placeholder="Search for a country"
+            placeholder="Type Username here..."
             className="form__field"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             type="text"
-            placeholder="type here..."
             name="username" required
         >
         </input>
 
         <p className="answers">Email</p>
         <input
-            placeholder="Search for a country"
+            placeholder="Type Email here"
             className="form__field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="text"
-            placeholder="type here..."
             name="email" required
         >
         </input>
         <p className="answers">Password</p>
         <input
-            placeholder="Search for a country"
+            placeholder="Type Password here..."
             className="form__field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            placeholder="type here..."
             name="password" required
         >
         </input>

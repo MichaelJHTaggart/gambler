@@ -25,24 +25,22 @@ const Login = props => {
 
         <p className="answers">Email</p>
         <input
-            placeholder="Search for a country"
+            placeholder="Type Email here"
             className="form__field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="text"
-            placeholder="type here..."
             name="email" required
         >
         </input>
 
         <p className="answers">Password</p>
         <input
-            placeholder="Search for a country"
+            placeholder="Type password here"
             className="form__field"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            placeholder="type here..."
             name="password" required
         >
         </input>
