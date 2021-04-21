@@ -21,7 +21,8 @@ const HomePage = props => {
       const newOutput = res.data.map(function (element) {
         return element.name
       });
-      setOutput(newOutput)
+      setOutput(newOutput);
+      successToast();
     })
   }
 
@@ -68,7 +69,7 @@ const HomePage = props => {
           )
         })}
       </div>
-    </div>
+    </div >
   )
 }
 export default HomePage
