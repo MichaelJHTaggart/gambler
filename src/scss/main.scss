@@ -1,9 +1,9 @@
 /* reset styles */
 @import './reset.scss';
-@import './Header.scss';
-@import './HomePage.scss';
-@import './SlotMachine.scss';
-@import './Country.scss';
+@import './Header';
+@import './HomePage';
+@import './SlotMachine';
+@import './Country';
 
 /* font styles */
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
@@ -36,13 +36,12 @@ $hover-accent:#758BFD;
     a:active, a:focus {
      outline: 0;
      border: none;
-     -moz-outline-style: none;
    }
 }
 .App{
  
  background-color: $primary;
- font-family: 'Saira Stencil One', cursive;
+ font-family: 'Stencil One', cursive;
 }
 
 
