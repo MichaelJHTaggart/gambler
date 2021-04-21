@@ -14,6 +14,9 @@ import Cherry from '../assets/cherry.png'
 import Slot from '../assets/slot.png'
 
 const SlotMachine = props => {
+  toast.warning("Make sure you are signed in before using the Slot Machine!")
+
+
   const id = useSelector(state => state.id)
   const name = useSelector(state => state.full_name)
 
@@ -23,7 +26,7 @@ const SlotMachine = props => {
     })
       .catch(err => {
         if (err) {
-          toast("API ERROR", {
+          toast("Not signed in", {
             className: "error-toast",
             draggable: true,
             position: toast.POSITION.TOP_CENTER
