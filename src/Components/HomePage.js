@@ -8,7 +8,13 @@ const HomePage = props => {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState([])
 
-  toast.success("Register to get coins! Then click on your coins to go to the Slot Machine!")
+  const successToast = () => {
+    toast("Register to get coins! Then click on your coins to go to the Slot Machine!", {
+      className: "custom-toast",
+      draggable: true,
+      position: toast.POSITION.TOP_CENTER
+    })
+  }
 
   function countryNames() {
     axios.get(`https://restcountries.eu/rest/v2/name/${input}`).then((res) => {
@@ -16,7 +22,6 @@ const HomePage = props => {
         return element.name
       });
       setOutput(newOutput)
-
     })
   }
 
@@ -39,6 +44,7 @@ const HomePage = props => {
             setInput(e.target.value);
             if (e.code === "Enter") {
               countryNames();
+              successToast();
             }
           }}
         />

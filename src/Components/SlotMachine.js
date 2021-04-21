@@ -14,15 +14,29 @@ import Cherry from '../assets/cherry.png'
 import Slot from '../assets/slot.png'
 
 const SlotMachine = props => {
-  toast.warning("Make sure you are signed in before using the Slot Machine!")
+  const warningToast = () => {
+    toast("Make sure you are signed in before using the Slot Machine!", {
+      className: "custom-toast",
+      draggable: true,
+      position: toast.POSITION.TOP_CENTER
+    })
+  }
 
+  const winningToast = () => {
+    toast("Check out your coin count to see if you have won!", {
+      className: "custom-toast",
+      draggable: true,
+      position: toast.POSITION.TOP_LEFT
+    })
+  }
 
   const id = useSelector(state => state.id)
   const name = useSelector(state => state.full_name)
 
   function spin() {
     axios.put('/user/spin').then((res) => {
-      props.loginUser(id, name, res.data)
+      winningToast();
+      props.loginUser(id, name, res.data);
     })
       .catch(err => {
         if (err) {
